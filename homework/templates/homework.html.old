@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'homework.css' %}">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    </head>
+
+    <body>
+        {{ taskList|json_script:"task" }}
+         
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" id="img" class="unclicked">
+        <div id="links">
+            {% if perms.homework.add_task %}
+            <a class="menulinks" href="/add">Aufgabe hinzufügen</a>
+            {% endif %}
+            <a class="menulinks" href="/course">Kurswahl ändern</a>
+            <a class="menulinks" href="/feedback">Feedback</a>
+            <a class="menulinks" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Kontakt</a>
+            <a class="menulinks" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Über uns</a>
+            <a class="menulinks" href="/logout">Ausloggen</a>
+        </div>
+        <script>
+            var img = document.getElementById("img");
+            var links = document.getElementById("links");
+            img.onclick = function() {
+                if (img.className == "unclicked") {
+                    img.className = "clicked";
+                    img.src = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Cross_CSS_Red.svg";
+                    links.style.top = "0";
+                }
+                
+                else {
+                    img.className = "unclicked";
+                    img.src = "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg";
+                    //links.style.top = (parseFloat(getComputedStyle(links).top) - 1000).toString() + 'px';
+                    links.style.top = "-100vh";
+                    
+                }
+            }
+        </script>
+        
+        
+        <div id="week21" class="week-2">
+            <div id="week1" class="week">
+                <div id="mon1" class="days"></div>
+                <div id="tue1" class="days"></div>
+                <div id="wed1" class="days"></div>
+                <div id="thu1" class="days"></div>
+                <div id="fri1" class="days end"></div>
+            </div>
+            <div id="week2" class="week">
+                <div id="mon2" class="days"></div>
+                <div id="tue2" class="days"></div>
+                <div id="wed2" class="days"></div>
+                <div id="thu2" class="days"></div>
+                <div id="fri2" class="days end"></div>
+            </div>
+        </div>
+        {% load static %}
+        <script src="{% static 'homework.js' %}"></script>
+        <!--<div class="week2">
+            <div id="week3" class="week">
+                <div id="mon1" class="days"></div>
+                <div id="tue1" class="days"></div>
+                <div id="wed1" class="days"></div>
+                <div id="thu1" class="days"></div>
+                <div id="fri1" class="days"></div>
+            </div>
+            <div id="week4" class="week">
+                <div id="mon2" class="days"></div>
+                <div id="tue2" class="days"></div>
+                <div id="wed2" class="days"></div>
+                <div id="thu2" class="days"></div>
+                <div id="fri2" class="days"></div>
+            </div>
+        </div>
+    -->
+    </body>
+</html>

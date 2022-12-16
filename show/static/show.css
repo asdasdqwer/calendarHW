@@ -1,0 +1,106 @@
+:root {
+    --backgroundColor: #F7F7F2;
+    --fieldBackground: #DEDEDE;
+    --fontColor: #000;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin: 0;
+}
+
+
+p {
+    margin-top: 5vh;
+    color: var(--fontColor);
+    font-size: 20px;
+}
+
+
+
+#rest {
+    display: flex;
+    flex-direction: row;
+}
+
+#descriptions {
+    width: 25vw;
+    height: auto;
+    margin-left: 5vw;
+}
+
+#title {
+    width: 90vw;
+    min-height: 5vh;
+    height: fit-content;
+    font-size: 10vw;
+    margin-left: 5vw;
+    margin-top: 20px;
+}
+
+hr {
+    width: 95vw;
+}
+
+#task {
+    margin-left: 5vw;
+    width: 90vw;
+    height: fit-content;
+    min-height: 25vh;
+    border: 0;
+    background-color: var(--backgroundColor);
+    color: var(--fontColor);
+    margin-top: 2.5vh;
+    font-size: 20px;
+    border-radius: 3px;
+    outline: 0;
+    font: normal 1em Verdana, 'Trebuchet MS', Tahoma, sans-serif;
+}
+
+#edit, #delete {
+    width: 90vw;
+    margin-left: 5vw;
+    color: var(--fontColor);
+    height: 5vh;
+    background-color: var(--fieldBackground);
+    margin-top: 2.5vh;
+    border: 2px solid rgb(128, 128, 128);
+    border-radius: 5px;  
+}
+
+#delete {
+    color: red;
+}
+
+a:visited {
+    color: inherit;
+}
+@media screen and (orientation: landscape) and (min-width: 992px) {
+    
+    #titleDiv, #rest {
+        margin-left: 20vw;
+    }
+    
+    #task{
+        margin-left: 25vw;
+        width: 50vw;
+        min-height: 30vh;
+    }
+    
+    hr {
+        width: 40vw;
+    }
+    
+    #edit, #delete {
+        width: 40vw;
+        margin-left: 30vw;
+    }
+    
+    #title {
+        font-size: 3vw;
+    }
+    
+}

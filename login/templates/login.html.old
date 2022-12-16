@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'login.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    </head>
+
+    <body>
+        <form id="all" action="." method="post" autocorrect="off" autocomplete="off" spellcheck="false">{% csrf_token %}
+            <input type="text" name="username" required id="username" placeholder="Benutzername" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            <input type="password" required name="password" id="password" placeholder="Passwort">
+            <p>{{ msg }}</p>
+            <button type="submit">Login</button>
+        </form>
+	
+        {% load static %}
+        <script src="{% static 'login.js' %}"></script>
+    </body>
+</html>

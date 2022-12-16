@@ -1,0 +1,198 @@
+:root {
+    --backgroundColor: #F7F7F2;
+    --fieldBackground: #DEDEDE;
+    --finishedFont: #818184;
+    --fontColor: #000;
+    --activeBG: #DA4167;
+    --invertPercentage: 0%;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    margin: 0;
+    padding: 0;
+    color: var(--fontColor);
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+img {
+    height: 10vh;
+    width: 10vh;
+    position: absolute;
+    left: 20px;
+    top: 14px;
+    z-index: 2;
+}
+
+#daysSelect {
+    margin-top: 15vh;
+    height: 12.5vh;
+    width: 100vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    padding: 0;
+    /* hide scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    scroll-snap-type: x mandatory;
+}
+    
+/* Hide scroolbar in Chrome, Safari and Opera */
+#daysSelect::-webkit-scrollbar {
+    display: none;
+}
+
+.week {
+    height: 12.5vh;
+    min-width: 90vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+p {
+    margin: 0;
+}
+
+.dayName {
+    font-size: 20px;
+}
+.monthName, .dateName {
+    font-size: 11px;
+}
+
+
+.days {
+    width: 15vw;
+    height: 12vh;
+    border-radius: 5px;
+    background-color: var(--fieldBackground);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px -5px 10px -7px rgba(0,0,0,0.38);
+}
+
+.activeDay {
+    background-color: var(--activeBG);
+}
+
+.finished {
+    text-decoration: line-through;
+    color: var(--finishedFont);
+    transition: 0.5s;
+}
+
+.notFinished {
+    text-decoration: none;
+    color: var(--fontColor);
+    transition: 0.5s;
+}
+
+@keyframes slideIn {
+    from {margin-top: -60px;}
+    to {margin-top: 1.5vh;}
+}
+
+.taskBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: fit-content;
+    min-height: 60px;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    align-items: center;
+    border-radius: 5px;
+    background-color: var(--fieldBackground);    
+}
+
+.animation {
+    animation-name: slideIn;
+    animation-duration: 0.5s;
+}
+
+.boxForCheckBox {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskTitleBox {
+    min-height: 60px;
+    height: fit-content;
+    flex: 1;
+    max-width: calc(90vw -60px);
+    display: flex;
+    align-items: center;
+
+}
+
+.taskTitle {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Following part is copied from "https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/", no idea how it works (but the page has an explanation)*/
+.taskTitleBox {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+
+#links {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--backgroundColor);
+    top: -100vh;
+    transition: 0.5s;
+}
+
+.unclicked {
+    filter: invert(var(--invertPercentage));
+}
+
+.menulinks {
+    display: flex;
+    justify-content: center;
+    line-height: 10vh;
+    text-decoration: none;
+    width: 90vw;
+    color: inherit;
+}
+
+.menulinks:hover {
+    background-color: var(--fieldBackground);
+}

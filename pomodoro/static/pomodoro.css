@@ -1,0 +1,62 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');*/
+
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+        url('../fonts/roboto-mono-v22-latin-300.woff2') format('woff2'),
+        url('../fonts/roboto-mono-v22-latin-300.woff') format('woff'); 
+}
+
+:root {
+    --length: 0px;
+    --backgroundColor: #F7F7F2;
+    --fieldBackground: #DEDEDE;
+    --fillColor: #818184;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--backgroundColor);
+    padding: 0;
+    margin: 0;
+}
+
+#divForTimer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+#timer {
+    width: min(70vw, 70vh);
+    height: min(70vw, 70vh);
+    background-color: var(--fieldBackground);
+    background-image: linear-gradient(to bottom, var(--fillColor) var(--length), var(--fieldBackground) var(--length));
+    border-radius: 50%;
+    border: #212121 solid 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#time {
+    color: #000;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#start {
+    width: 50vw;
+    height: 10vh;
+    background-color: aqua;
+    text-align: center;
+    border: 0;
+    border-radius: 20px;
+}

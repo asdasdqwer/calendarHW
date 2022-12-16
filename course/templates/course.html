@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/static/course.css">
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    </head>
+
+    <body>
+        
+        <script type="text/javascript">
+            window.CSRF_TOKEN = "{{ csrf_token }}";
+        </script>
+	    {{ darkmode|json_script:"darkmode" }}        
+        {{ availableCourses|json_script:"availableCourses" }}
+        {{ selectedCourses|json_script:"selectedCourses" }}
+	    {{ subjectClasses|json_script:"subjectClasses" }}
+	    {{ subjects|json_script:"subjects" }}        
+        <img src="/media/ausloggen.png" id="back">
+        <script src="/static/course.js">
+        </script>
+    </body>
+</html>

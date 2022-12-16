@@ -1,0 +1,87 @@
+:root {
+    --backgroundColor: #F7F7F2;
+    --fieldBackground: #DEDEDE;
+    --buttonBG: #121113;
+    --buttonBGOnHover: #C1C1C1;
+    --buttonFont: #FFF;
+    --buttonFontHover: #000;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background-color: var(--backgroundColor);
+    justify-content: center;
+}
+
+
+#all {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    align-items: center;
+    text-align: left;    
+}
+
+
+#username, #password, button {
+    padding-left: 0;
+    margin: 40px;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: var(--fieldBackground);
+    border: 1px solid black;
+    outline: 0;
+    height: 100px;
+    width: 90vw;
+    border-radius: 2vh;
+    font-size: 25px;
+    text-align: center;
+}
+
+#username {
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
+#password {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    color: rgb(255, 0, 0);
+
+}
+
+button {
+    height: 7.5vh;
+    background-color: var(--buttonBG);
+    color: var(--buttonFont);
+    border: 0;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: var(--buttonBGOnHover);
+    color: var(--buttonFontHover);
+}
+
+@media screen and (orientation: landscape) and (min-width: 992px) {
+    body {
+        align-items: center;
+    }
+    
+    #username, #password, button {
+        width: 25vw;
+        margin: 5px;
+        height: 10vh;
+    }
+    
+    button {
+        height: 7.5vh;
+    }
+}

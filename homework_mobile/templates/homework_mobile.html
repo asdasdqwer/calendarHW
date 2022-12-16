@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/static/homework_mobile.css">
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+
+    <body>
+        {{ taskList|json_script:"task" }}
+        {{ darkmode|json_script:"darkmode" }}
+        
+        <script type="text/javascript">
+            window.CSRF_TOKEN = "{{ csrf_token }}";
+        </script>
+        
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" id="img" class="unclicked">
+        <div id="links">
+            {% if perms.login.add_task %}
+            <a class="menulinks" href="/add/">Aufgabe hinzufügen</a>
+            {% endif %}
+            <a class="menulinks" href="/course/">Kurswahl ändern</a>
+            <a class="menulinks" href="/darkmode/" id="darkmodeLink">Darkmode</a>
+            <a class="menulinks" href="https://wa.me/+491788240703">Feedback</a>
+            <a class="menulinks" href="/AXetJvTfU0/">Über uns</a>
+            <a class="menulinks" href="/media/app-release.apk">Android-App</a>
+            <a class="menulinks" href="/logout/">Ausloggen</a>
+        </div>
+        <script>
+            var img = document.getElementById("img");
+            var links = document.getElementById("links");
+            img.onclick = function() {
+                if (img.className == "unclicked") {
+                    img.className = "clicked";
+                    img.src = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Cross_CSS_Red.svg";
+                    links.style.top = "0";
+                }
+                
+                else {
+                    img.className = "unclicked";
+                    img.src = "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg";
+                    links.style.top = "-100vh";
+                    
+                }
+            }
+        </script>
+        
+        <div id="daysSelect"></div>
+        <script src="/static/homework_mobile.js"></script>
+    </body>
+</html>

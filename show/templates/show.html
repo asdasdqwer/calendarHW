@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="/static/show.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    
+    <body>
+	{{ darkmode|json_script:"darkmode" }}
+        <div>
+            <div id="titleDiv">
+                <p id="title">{{ task.0 }}</p>
+            </div>
+            
+            <div id="rest">
+                <div id="descriptions">
+                    <p>Datum: </p>
+                    <p>Fach: </p>
+                    <p>Typ: </p>
+                </div>
+                <div id="inputs">
+                    <p id="date">{{ task.1 }}</p>
+                    <p id="subject">{{ task.2 }}</p>
+                    <p id="taskType">{{ task.3 }}</p>
+                    
+                </div>
+            </div>
+            <hr>
+            
+            <div id="task" name="description">{{ task.4 }}</div>
+            {% if perms.login.add_task %}
+                <button id="edit">Bearbeiten</button>
+                <button id="delete">Löschen</button>
+                <script>
+                    var button = document.getElementById("edit");
+                    button.onclick = function () {
+                        var url = window.location.pathname;
+                        url = url.replace("show", "edit");
+                        window.open(url, "_self");
+                    }
+                    
+                    var button2 = document.getElementById("delete");
+                    button2.onclick = function () {
+                        var url = window.location.pathname;
+                        url = url.replace("show", "delete");
+                        window.open(url, "_self");
+                    }
+                </script>
+            {% endif %}
+        </div>
+        <script src="/static/show.js">
+        </script>
+    </body>
+</html>

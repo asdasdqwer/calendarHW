@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/static/stufe.css">
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            window.CSRF_TOKEN = "{{ csrf_token }}";
+        </script>
+        <h1>Stufenauswahl</h1>
+        <div class="select" id="s10"><h3>EF</h3></div>
+        <div class="select" id="s11"><h3>Q1</h3></div>
+        <div class="select" id="s12"><h3>Q2</h3></div>
+        <script src="/static/stufe.js">
+        </script>
+    </body>
+</html>

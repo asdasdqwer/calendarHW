@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+a = open("calendarHW.sql").readlines()[:]
+
+for i in range(len(a)):
+	a[i] = a[i].replace("utf8mb4_0900_ai_ci", "utf8mb4_unicode_ci")
+
+b = open("calendarHW.sql", "w")
+
+for i in a:
+	b.write(i)
+
+b.close()

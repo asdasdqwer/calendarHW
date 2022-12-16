@@ -1,0 +1,22 @@
+:root {
+    --fieldBackground: #DEDEDE;
+    --backgroundColor: #F7F7F2;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--backgroundColor);
+}
+
+.select {
+    text-align: left;
+    color: #000;
+    justify-content: center;
+    height: 100px;
+    background-color: var(--fieldBackground);
+    margin: 5px;
+    border-radius: 10px;
+    overflow: block;
+}

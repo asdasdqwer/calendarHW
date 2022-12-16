@@ -1,0 +1,115 @@
+:root {
+    --backgroundColor: #F7F7F2;
+    --fieldBackground: #DEDEDE;
+    --buttonBGOnHover: #C1C1C1;
+    --buttonFontHover: #000;
+    --invertPercentage: 0%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--backgroundColor);
+    color: var(--buttonFontHover);
+}
+
+body {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+
+
+h3 {
+    background-color: var(--fieldBackground);
+}
+
+
+.subjects, .courses , #submit{
+    text-align: left;
+    color: var(--buttonFontHover);
+    justify-content: center;
+    height: 100px;
+    background-color: var(--fieldBackground);
+    margin: 5px;
+    border-radius: 10px;
+    overflow: block;
+}
+
+#submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+#submit:hover {
+    background-color: var(--buttonBGOnHover);
+    color: var(--buttonFontHover);
+}
+
+
+
+@media (hover: hover) and (pointer: fine) {
+    .subjects:hover, .courses:hover {
+        border: 5px solid black;
+    }
+
+    .one:hover h3, .one:hover{
+        background-color: #FFCAE9;
+    }
+
+    .two:hover h3, .two:hover{
+        background-color: #4CB5AE;
+    }
+
+    .three:hover h3, .three:hover{
+        background-color: #F4D06F;
+    }
+
+    .four:hover h3, .four:hover{
+        background-color: #DD7373;
+    }
+
+    .five:hover h3, .five:hover{
+        background-color: #9DD9D2;
+    }
+
+    .six:hover h3, .six:hover {
+        background-color: #4CB5AE;
+    }
+}
+
+
+.tickImg {
+    visibility: visible;
+    float: right;
+    margin-top: -35px;
+    display: block;
+}
+
+.courses {
+    visibility: hidden;
+    display: none;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    display: none;
+    visibility: hidden;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+#back {
+    filter: invert(var(--invertPercentage));
+}

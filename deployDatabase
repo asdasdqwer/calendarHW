@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ssh erv@homework-hhg.com 'mysql -u asd -p"uL857&zoUDoU" -e "DROP DATABASE calendarHW; CREATE DATABASE calendarHW"'
+mysqldump -u asd -p"uL857&zoUDoU" calendarHW > calendarHW.sql
+./remove_utf8mb4_0900_ai_ci
+scp calendarHW.sql erv@homework-hhg.com:/home/erv/calendarHW.sql
+ssh erv@homework-hhg.com 'mysql -u asd -p"uL857&zoUDoU" calendarHW < calendarHW.sql; rm calendarHW.sql; ./restart_server'
+#rm calendarHW.sql

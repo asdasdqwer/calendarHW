@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link href="{% static 'add.css' %}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    </head>
+    
+    <body>
+        <form method="POST" action=".">{% csrf_token %}
+            <div id="titleDiv">
+                <input type="text" name="title" id="title" placeholder="Titel der Aufgabe (optional)">
+            </div>
+            
+            <div id="rest">
+                <div id="descriptions">
+                    <p>Datum: </p>
+                    <p>Fach: </p>
+                    <p>Typ: </p>
+                </div>
+                <div id="inputs">
+                    <input type="date" id="inputDate" name="inputDate" required>
+                    
+                    
+                    <select id="subject" name="subject" required>
+                        {% for subject in subjects %}
+                            <option value="{{ subject }}">{{ subject }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <select id="type" name="taskType" required>
+                        <option value="Hausaufgabe">Hausaufgabe</option>
+                        <option value="Klausur (mit Test)">Klausur (mit Test)</option>
+                        <option value="Klausur (ohne Test)">Klausur (ohne Test)</option>
+                        <option value="Test">Test</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            
+            <textarea id="task" name="description" placeholder="Beschreibung der Aufgabe / Themen der Klausur" required></textarea>
+            <button id="submit" type="submit">Senden</button>
+        </form>
+        {% load static %}
+        <script src="{% static 'add.js' %}">
+        </script>
+    </body>
+</html>

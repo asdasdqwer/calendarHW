@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link href="{% static 'show.css' %}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    </head>
+    
+    <body>
+        <div>
+            <div id="titleDiv">
+                <p id="title">{{ task.0 }}</p>
+            </div>
+            
+            <div id="rest">
+                <div id="descriptions">
+                    <p>Datum: </p>
+                    <p>Fach: </p>
+                    <p>Typ: </p>
+                </div>
+                <div id="inputs">
+                    <p id="date">{{ task.1 }}</p>
+                    <p id="subject">{{ task.2 }}</p>
+                    <p id="taskType">{{ task.3 }}</p>
+                    
+                </div>
+            </div>
+            <hr>
+            
+            <textarea id="task" name="description" readonly>{{ task.4 }}</textarea>
+            
+            {% if perms.homework.add_task %}
+                <button id="edit">Bearbeiten</button>
+                <button id="delete">Löschen</button>
+                <script>
+                    var button = document.getElementById("edit");
+                    button.onclick = function () {
+                        var url = window.location.pathname;
+                        url = url.replace("show", "edit");
+                        window.open(url, "_self");
+                    }
+                    
+                    var button2 = document.getElementById("delete");
+                    button2.onclick = function () {
+                        var url = window.location.pathname;
+                        url = url.replace("show", "delete");
+                        window.open(url, "_self");
+                    }
+                </script>
+            {% endif %}
+        </div>
+        {% load static %}
+        <script src="{% static 'show.js' %}">
+        </script>
+    </body>
+</html>

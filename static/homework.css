@@ -1,0 +1,202 @@
+:root {
+    --backgroundColor: #F7F7F2;
+    --fieldBackground: #DEDEDE;
+    --fontColor: #000;
+    --fontOnActive: #818181;
+    --invertPercentage: 0%;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    margin: 0;
+    color: var(--fontColor);
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+img {
+    height: 5vh;
+    width: 5vh;
+    position: absolute;
+    left: 20px;
+    top: 14px;
+    z-index: 2;
+}
+
+.week-2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.week {
+    margin-top: 7.5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    width: 80vw;
+    height: fit-content;
+    min-height: min(85vw, 85vh);
+    border: 5px solid black;
+    background-color: var(--fieldBackground);
+    border-radius: 20px;
+}
+
+#week1 {
+    margin-right: 0;
+}
+
+.days {
+    width: 100%;
+    border-bottom: 2px solid black;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    min-height: max(20vh, 20vw);
+}
+
+.leftDiv {
+    width: 75px;
+    margin-left: 10px;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+    border-color: black;
+}
+
+.rightDiv {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.singleTask {
+    white-space: initial;
+    max-width: calc(80vw - 127px);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.finished {
+    text-decoration: line-through;
+    color: var(--fontOnActive);
+    transition: 0.5s;
+}
+
+.notFinished {
+    text-decoration: none;
+    color: var(--fontColor);
+    transition: 0.5s;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    min-height: 40px;
+    align-items: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 0px 0px 0px;
+}
+
+/* Following part is copied from "https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/", no idea how it works (but the page has an explanation)*/
+.box {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.boxForCheckBox {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.end {
+    border-bottom: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.dayNumber {
+    font-size: 250%;
+}
+
+.dayName {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    margin-top: 5px;
+}
+
+#links {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    background-color: var(--backgroundColor);
+    top: -100vh;
+    transition: 0.5s;
+}
+
+.unclicked {
+    filter: invert(var(--invertPercentage));
+}
+
+.menulinks {
+    display: flex;
+    justify-content: center;
+    line-height: 10vh;
+    text-decoration: none;
+    width: 90vw;
+    color: inherit;
+}
+
+.menulinks:hover {
+    background-color: var(--fieldBackground);
+}
+
+
+
+
+
+@media all and (orientation: landscape) and (min-width: 992px) {
+    .week-2 {
+        flex-direction: row;
+        margin-top: 5vh;
+    }
+    
+    .week {
+        margin-left: 5vw;
+    }
+    
+    img {
+        height: 5vw;
+        width: 5vw;
+    }
+    
+    .singleTask {
+        max-width: calc(40vw - 136px);
+    }
+}

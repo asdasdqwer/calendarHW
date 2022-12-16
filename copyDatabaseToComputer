@@ -1,0 +1,8 @@
+#!/bin/sh
+
+mysql -u asd -p"uL857&zoUDoU" -e "DROP DATABASE calendarHW; CREATE DATABASE calendarHW"
+ssh erv@homework-hhg.com 'mysqldump -u asd -p"uL857&zoUDoU" calendarHW > calendarHW.sql'
+scp erv@homework-hhg.com:/home/erv/calendarHW.sql .
+mysql -u asd -p"uL857&zoUDoU" calendarHW < calendarHW.sql
+ssh erv@homework-hhg.com "rm calendarHW.sql"
+rm calendarHW.sql

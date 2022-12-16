@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+
+from login.models import *
+from django.contrib.auth.models import User
+
+CheckBox.objects.all().delete()
+
+allUsers = User.objects.all()
+
+for user in allUsers:
+	coursesFromUser = user.courses.all()
+	taskList = Task.objects.filter(course__in=coursesFromUser)
+	
+	for task in taskList:
+		c = CheckBox.objects.create(user=user, task=task, checked=False)
+		c.save()
+	

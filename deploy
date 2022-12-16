@@ -1,0 +1,11 @@
+#!/bin/sh
+./collect
+python3 production.py
+cd ../
+zip -r calendarHW.zip calendarHW/
+scp calendarHW.zip erv@homework-hhg.com:/home/erv/
+ssh erv@homework-hhg.com 'rm -rf calendarHW/; unzip calendarHW.zip; cd calendarHW; ./migration; cd -; ./restart_server; rm calendarHW.zip; cp app-release.apk calendarHW/media/'
+rm calendarHW.zip
+cd calendarHW
+python3 backToNormalSettings.py
+cd -
